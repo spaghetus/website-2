@@ -1,0 +1,237 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css");
+@import url("/characters.ts");
+@import url("/static/fonts.css");
+
+* {
+	font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "kern" 1, "mark" 1;
+	text-rendering: optimizeLegibility;
+	font-family: hyperlegible;
+	font-variant-ligatures: normal;
+}
+
+body {
+	text-align: initial;
+	max-width: 75em;
+	margin: auto;
+	padding: 2em;
+	color: black;
+}
+
+hr {
+	border-top: 1px solid gray;
+	overflow: visible;
+	height: 5px;
+}
+
+hr+div.hr {
+	padding-top: 0;
+	margin: 0;
+	text-align: center;
+	position: relative;
+	top: -35px;
+	height: 0;
+	overflow: visible;
+}
+
+hr+div.hr>span {
+	border-radius: 100px;
+	background-color: beige;
+	content: attr("data-text");
+	position: relative;
+	padding: 4px 8px;
+	padding-top: 6px;
+	top: -12px;
+	border: 1px solid gray;
+}
+
+:lang(tok) {
+	font-family: linja-pona;
+}
+
+pre {
+	position: relative;
+	padding: 8px;
+	padding-left: 16px;
+	border-radius: 16px;
+	border-style: none;
+	/* border-width: 0px;
+	border-left-width: 4px;
+	border-right-width: 4px;
+	border-style: solid;
+	border-color: #9b4dca; */
+	background-color: #f0f0f0;
+	color: black;
+	box-shadow: 0 0 8px black inset;
+	transition: all 0.25s;
+	max-height: 50vh;
+	min-height: 10em;
+	overflow-y: scroll;
+	overflow-wrap: normal;
+}
+
+pre:hover {
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+code {
+	background: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	font-family: firacode;
+	font-size: medium;
+	font-feature-settings: "liga" 1, "clig" 1, "calt" 1, "kern" 1, "mark" 1;
+	text-rendering: optimizeLegibility;
+	font-variant-ligatures: normal;
+}
+
+code span {
+	font-family: firacode;
+}
+
+pre.sourceCode:after {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 6px;
+	padding-right: 24px;
+	padding-left: 24px;
+	background-color: #9b4dca;
+	border-radius: 13px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	font-family: firacode;
+	color: white;
+	font-weight: bold;
+	box-shadow: 0 0 8px black;
+	transition: all 0.25s;
+}
+
+pre:hover.sourceCode:after {
+	opacity: 20%;
+	box-shadow: none;
+}
+
+pre[data-code-tag]:after {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 6px;
+	padding-right: 24px;
+	padding-left: 24px;
+	background-color: #9b4dca;
+	border-radius: 13px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	font-family: firacode;
+	color: white;
+	font-weight: bold;
+	content: attr(data-code-tag);
+	box-shadow: 0 0 8px black;
+	transition: all 0.25s;
+}
+
+pre:hover[data-code-tag]:after {
+	opacity: 20%;
+	box-shadow: none;
+}
+
+section.footnotes ol p {
+	display: inline;
+}
+
+section.footnotes a.footnote-back {
+	display: none;
+}
+
+div.character {
+	border-radius: 64px;
+	border-style: solid;
+	border-color: black;
+	font-size: larger;
+	margin: 0;
+	padding: 12px;
+	display: flex;
+	flex-direction: row;
+	min-height: 128px;
+	padding-left: 128px;
+	position: relative;
+	background-size: 128px 128px;
+	background-position: 0vw calc(100%);
+	background-repeat: no-repeat;
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+
+	10% {
+		transform: translate(-1px, -2px) rotate(-0.5deg);
+	}
+
+	20% {
+		transform: translate(-3px, 0px) rotate(0.5deg);
+	}
+
+	30% {
+		transform: translate(3px, 2px) rotate(0deg);
+	}
+
+	40% {
+		transform: translate(1px, -1px) rotate(0.5deg);
+	}
+
+	50% {
+		transform: translate(-1px, 2px) rotate(-0.5deg);
+	}
+
+	60% {
+		transform: translate(-3px, 1px) rotate(0deg);
+	}
+
+	70% {
+		transform: translate(3px, 1px) rotate(-0.5deg);
+	}
+
+	80% {
+		transform: translate(-1px, -1px) rotate(0.5deg);
+	}
+
+	90% {
+		transform: translate(1px, 2px) rotate(0deg);
+	}
+
+	100% {
+		transform: translate(1px, -2px) rotate(-0.5deg);
+	}
+}
+
+div.character.yell {
+	font-size: xx-large;
+	animation: shake 0.5s;
+	animation-iteration-count: infinite;
+}
+
+div.character::before {
+	padding-right: 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #1a161a;
+		color: white;
+	}
+
+	pre {
+		background-color: #2a1f2a;
+	}
+
+	code {
+		color: white;
+	}
+
+	hr+div.hr>span {
+		background-color: #3a1f3a;
+	}
+}

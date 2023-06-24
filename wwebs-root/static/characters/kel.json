@@ -1,0 +1,10 @@
+{
+	"id": "kel",
+	"name": "KEL",
+	"color": "orange",
+	"image": {
+		"neutral": "kel.gif",
+		"happy": "kel_happy.gif",
+		"angry": "kel_angry.gif"
+	}
+}

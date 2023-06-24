@@ -1,0 +1,18 @@
+#!/bin/bash
+# Makes sure that the file the user is trying to read is accessible.
+REQUESTED=${REQUESTED%\%0A}
+DOCTYPE="$(basename $(dirname $0))"
+REL_PATH="${REQUESTED#/$DOCTYPE/}"
+
+if [[ "$REQUESTED" == *tree.ts* || "$REQUESTED" == *chrono.ts* ]]; then
+	exit 0
+fi
+
+cd ..
+if make "$DOCTYPE/$REL_PATH" > /dev/null; then
+	exit 0
+else
+	>&2 echo status 404
+	>&2 echo "Can't make $REQUESTED"
+	echo "Can't make $REQUESTED, probably doesn't exist?"
+fi

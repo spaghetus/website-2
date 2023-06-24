@@ -1,0 +1,32 @@
+Rendering Tests
+===============
+
+This page tests rendering support.
+
+``` {.rust}
+fn main() {
+    println!("This should be formatted like a code block")
+}
+```
+
+``` {.javascript}
+const foo = require("bar");
+
+console.log("This is a long code block...");
+console.log(
+  "If your viewport is short, it will be shortened to take up less space.",
+);
+
+for (let n = 0; n < 1000; n++) {
+  let out = "";
+  if (n % 3 == 0) {
+    out += "fizz";
+  }
+  if (n % 5 == 0) {
+    out += "buzz";
+  }
+  if (out == "") {
+    out = n.toString();
+  }
+}
+```

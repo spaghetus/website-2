@@ -1,0 +1,6 @@
+*.pem
+*.gem
+*.html
+*.pdf
+*.wav
+!wwebs-root/static/*

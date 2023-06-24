@@ -1,0 +1,16 @@
+@font-face {
+	font-family: linja-pona;
+	src: url('https://davidar.github.io/linja-pona/linja-pona-4.1.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: hyperlegible;
+	src: url('/static/font/hyperlegible.woff2');
+}
+
+@font-face {
+	font-family: firacode;
+	src: url('/static/font/firacode.woff2');
+}

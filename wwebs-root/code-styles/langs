@@ -1,0 +1,13 @@
+#!/bin/bash
+
+>&2 echo header Content-Type text/css
+
+cat base.css;
+
+for language in $(pandoc --list-highlight-languages); do
+	cat << EOF
+pre.sourceCode.$language:after {
+	content: '$language'
+}
+EOF
+done

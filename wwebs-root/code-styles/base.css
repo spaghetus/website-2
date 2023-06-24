@@ -1,0 +1,20 @@
+.kw {
+	color: green;
+	font-weight: bold;
+}
+
+.dv {
+	color: green;
+}
+
+.op {
+	color: inherit;
+}
+
+.pp {
+	color: orange;
+}
+
+.st {
+	color: green;
+}
