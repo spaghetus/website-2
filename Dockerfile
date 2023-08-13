@@ -1,7 +1,7 @@
 FROM docker.io/denoland/deno AS deno
 RUN cp $(which deno) /deno
 
-FROM docker.io/rust:1.65
+FROM docker.io/rust:1.71
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
 	apt-get install -y pandoc texlive-latex-recommended && \

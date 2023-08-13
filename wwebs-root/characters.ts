@@ -43,8 +43,7 @@ function name(char_id: string, char_name: string, color: string) {
 	const selector = `div.character.${char_id}`
 
 	console.log(`
-	${selector}::before {
-		content: '${char_name}:';
+	${selector} span.name {
 		color: ${color};
 	}
 	`)

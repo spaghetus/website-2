@@ -1,0 +1,7 @@
+
+-------------------------------- End of Content --------------------------------
+
+Hello! This text file is generated from markdown, which has more features, so some content might be missing or incorrect.
+
+=> /txt/index.txt Home
+=> /LICENSE Content license

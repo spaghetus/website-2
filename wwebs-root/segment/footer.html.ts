@@ -5,6 +5,25 @@ const wwebs_root = Deno.realPathSync(path.dirname(path.dirname(path.fromFileUrl(
 
 console.log('<hr><div class="hr"><span>End of content</span></div>');
 
+console.log(`<p><a href="/LICENSE">Content license</a></p>`);
+
+
+console.log(`
+<p>Information about me:</p>
+<table>
+<tr>
+	<td>Public mailbox</td>
+	<td>The word 'public' at the letter 'w' dot this domain name.</td>
+</tr>
+<tr>
+	<td>Fediverse</td>
+	<td><a rel="me" href="https://blahaj.zone/@w">@w@blahaj.zone</a></td>
+</tr>
+</table>
+`);
+
+
+
 const requested = Deno.env.get('REQUESTED')
 	?.split('/')
 	.filter((el: string) => el.length > 0) || ['html', 'index.html'];
@@ -24,7 +43,7 @@ for (const [dir, ext, name] of [
 	['pdf', 'pdf', 'Printable'],
 	['txt', 'txt', 'Plain-text'],
 	(() => {
-		let human_wav_path = path.join(wwebs_root, other_version(requested, 'wav-human', 'wav').join('/'))
+		const human_wav_path = path.join(wwebs_root, other_version(requested, 'wav-human', 'wav').join('/'))
 		try {
 			Deno.statSync(human_wav_path);
 			return ['wav-human', 'wav', 'Human reading']
@@ -33,15 +52,25 @@ for (const [dir, ext, name] of [
 		}
 	})()
 ]) {
-	let path = '/' + other_version(requested, dir, ext).join('/');
+	const path = '/' + other_version(requested, dir, ext).join('/');
+	if (ext == 'wav') {
 	console.log(`<tr>
 	<td>${name}</td>
-	<td><a href="${path}">${path}</a></td>
+	<td><audio controls preload="none"><source src="${path}" type="audio/wav"></audio></td>
 </tr>`)
+	} else {
+	console.log(`<tr>
+	<td>${name}</td>
+	<td><a rel="alternate" href="${path}">${path}</a></td>
+</tr>`)
+	}
 }
+
+console.log('</table>');
 
 
 console.log(`
+<p><a href="https://github.com/spaghetus/website-2">Source code</a></p>
 </body>
 </html>
 `);

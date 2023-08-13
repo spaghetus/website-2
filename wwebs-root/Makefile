@@ -18,6 +18,7 @@ pdf/%.pdf: md/%.md
 txt/%.txt: md/%.md
 	mkdir -p $(shell dirname $@)
 	pandoc --quiet -V geometry:margin=1in -f markdown $< -o $@
+	cat static/footer.txt >> $@
 
 wav/%.wav: txt/%.txt
 	mkdir -p $(shell dirname $@)

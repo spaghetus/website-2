@@ -209,12 +209,17 @@ div.character {
 
 div.character.yell {
 	font-size: xx-large;
-	animation: shake 0.5s;
-	animation-iteration-count: infinite;
 }
 
-div.character::before {
-	padding-right: 0.5em;
+@media (prefers-reduced-motion: no-preference) {
+	div.character.yell {
+		animation: shake 0.5s;
+		animation-iteration-count: infinite;
+	}
+}
+
+div.character span.name {
+	font-weight: bold;
 }
 
 @media (prefers-color-scheme: dark) {
