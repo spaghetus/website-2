@@ -80,14 +80,21 @@ tree.name = CONTENT_TYPE
 // Write header
 switch (content_type) {
 	case ContentType.HTML: {
+			console.error('header Content-Type text/html');
 			const out = await(new Deno.Command(`../segment/header.html.ts`)).output();
 			Deno.stdout.writeSync(out.stdout);
 			Deno.stderr.writeSync(out.stderr);
 			break;
 		}
 	case ContentType.Gem:
+		console.error('header Content-Type text/gemtext');
+		break;
 	case ContentType.Md:
+		console.error('header Content-Type text/markdown');
+		break;
 	case ContentType.Txt:
+		console.error('header Content-Type text/plain');
+		break;
 }
 
 // Convert tree to markup
@@ -149,3 +156,22 @@ switch (content_type) {
 }
 
 console.log(lines?.join('\n'));
+
+
+// Write footer
+switch (content_type) {
+	case ContentType.HTML: {
+			const out = await(new Deno.Command(`../segment/footer.html.ts`)).output();
+			Deno.stdout.writeSync(out.stdout);
+			Deno.stderr.writeSync(out.stderr);
+			break;
+		}
+	case ContentType.Gem:
+		Deno.stdout.writeSync(Deno.readFileSync('../static/footer.gem'));
+		break;
+	case ContentType.Md:
+		break;
+	case ContentType.Txt:
+		Deno.stdout.writeSync(Deno.readFileSync('../static/footer.txt'));
+		break;
+}
