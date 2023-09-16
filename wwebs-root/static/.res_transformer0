@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cat
+
+if [[ $REQUESTED =~ ".css" ]]
+then
+>&2 echo header Content-Type text/css
+fi
