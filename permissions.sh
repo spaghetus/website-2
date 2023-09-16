@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo chown $(whoami) -R wwebs-root
+chmod o-x -R wwebs-root
 chmod o+r -R wwebs-root
 chmod u+x -R wwebs-root
 chmod o+x $(find wwebs-root -type d)
