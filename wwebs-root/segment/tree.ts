@@ -157,7 +157,6 @@ switch (content_type) {
 
 console.log(lines?.join('\n'));
 
-
 // Write footer
 switch (content_type) {
 	case ContentType.HTML: {
