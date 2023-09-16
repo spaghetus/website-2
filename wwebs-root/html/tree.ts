@@ -9,8 +9,6 @@ let requested = Deno.env.get("REQUESTED");
 requested = requested?.substring(requested.indexOf(filename || '') + (filename?.length || 0))
 
 
-
-
 async function list_dir(path: string, depth = -1) {
 	if (depth >= 0) {
 		console.log('<li>');
@@ -64,7 +62,10 @@ async function list_dir(path: string, depth = -1) {
 		console.log('</li>');
 	}
 }
-console.log(Deno.readTextFileSync('../static/header.html'));
+// console.log(Deno.readTextFileSync('../static/header.html'));
+let out = await(new Deno.Command(`../segment/header.html.ts`)).output();
+Deno.stdout.writeSync(out.stdout);
+Deno.stderr.writeSync(out.stderr);
 
 if (filename == 'tree.ts') {
 	console.log("<h1>Tree</h1>")
@@ -78,4 +79,7 @@ if (requested?.length || 0 > 0) {
 
 await list_dir(`../md${requested}`)
 
-console.log(Deno.readTextFileSync('../static/footer.html'));
+// console.log(Deno.readTextFileSync('../static/footer.html'));
+out = await(new Deno.Command(`../segment/footer.html.ts`)).output();
+Deno.stdout.writeSync(out.stdout);
+Deno.stderr.writeSync(out.stderr);
