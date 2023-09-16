@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run -A
 
-console.error('header Content-Type text/markdown')
+console.error('header Content-Type text/gemini')
 
 const filename = new URL('', import.meta.url).pathname.split('/').findLast(_v => true)
 
