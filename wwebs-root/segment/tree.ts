@@ -128,10 +128,10 @@ function md_tree(tree: Dir | File, path_here: string): Array<string> {
 
 function gem_tree(tree: Dir | File, path_here: string): Array<string> {
 	if (tree.kind == 'file') {
-		return [`=> ${path_here}/${tree.name.replace(/\.md$/, `.${CONTENT_TYPE}`)} ${tree.name.replace(/\.md$/, `.${CONTENT_TYPE}`)}`]
+		return [`=> ${path_here}/${tree.name.replace(/\.md$/, `.${CONTENT_TYPE}`)}`]
 	}
 
-	const out = [`# ${path_here}/${tree.name}`];
+	const out = [];
 	for (const file of tree.entries) {
 		for (const line of gem_tree(file, `${path_here}/${tree.name}`)) {
 			out.push(`${line}`);
