@@ -4,7 +4,7 @@ REQUESTED=${REQUESTED%\%0A}
 DOCTYPE="$(basename $(dirname $0))"
 REL_PATH="${REQUESTED#/$DOCTYPE/}"
 
-if [[ "$REQUESTED" == *tree.ts* || "$REQUESTED" == *chrono.ts* ]]; then
+if [[ "$REQUESTED" == *tree* || "$REQUESTED" == *chrono* ]]; then
 	exit 0
 fi
 
