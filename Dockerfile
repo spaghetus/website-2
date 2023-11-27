@@ -14,5 +14,5 @@ RUN cargo install md2gemtext
 COPY --from=deno /deno /bin/deno
 WORKDIR /wsrc
 
-RUN cargo install --git https://github.com/spaghetus/wwebs --rev 57ef623ad5c59efcfc4521e15ce306106f4c1f6e
+RUN cargo install --git https://github.com/spaghetus/wwebs --rev 3562156373f5486317afb0c34de3657d764e6397
 CMD wwebs -h 8000 --gem-priv /private.pem --gem-pub /public.pem
