@@ -19,6 +19,14 @@ console.log(`
 	<td>Fediverse</td>
 	<td><a rel="me" href="https://blahaj.zone/@w">@w@blahaj.zone</a></td>
 </tr>
+<tr>
+	<td>Public Key</td>
+	<td>
+		<a href="https://keys.openpgp.org/vks/v1/by-fingerprint/FE21E0981CDFD50ADD086423C21A693BA4693A60">
+			FE21E0981CDFD50ADD086423C21A693BA4693A60
+		</a>
+	</td>
+</tr>
 </table>
 `);
 
